@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+
+      <ul class="list-group list-group-flush" *ngFor="let bus of buses; let i = index">
+        <li class="list-group-item">
+
+          <div><span class="list-item">( {{ i+1 }} ) Bus Name :</span> {{ bus.busTitle }} </div>
+
+          <div>
+            <span class="list-item">Bus Source :</span> {{ bus.busSource }}
+            <span class="list-item">Bus Destination :</span> {{ bus.busDestination }}
+          </div>
+
+          <div>
+            <span class="list-item">Total Seats :</span> {{ bus.totalNoOfSeats }}
+            <span class="list-item">Remaining Seats :</span> {{ bus.noOfSeatsAvailable }}
+          </div>
+
+          <div><span class="list-item">Cost Per Seat :</span> {{ bus.costPerSeat }} </div>
+
+
+          <div>
+            <span class="list-item">Travel Date :</span> {{ bus.busTravelDate }}
+            <span class="list-item">Travel Timings :</span> {{ bus.busTravelTime }}
+          </div>
+
+          <hr>
+
+          <div *ngFor="let booking of bus.bookings">
+            <span class="list-item">Booked By :</span> {{ booking.bookingEmail }}
+            <span class="list-item">Total Cost :</span> {{ booking.totalCost }}
+            <span class="list-item">Seat No :</span>
+            <span *ngFor="let ticketno of booking.ticketNumbers">
+              {{ ticketno }}
+            </span>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

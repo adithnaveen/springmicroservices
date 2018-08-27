@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        Travel Bookings
+      </div>
+      <div class="card-body">
+
+        <form (ngSubmit)="onSubmit(bookingForm)" #bookingForm="ngForm">
+
+          <div class="row">
+          	<div class="col-md-4">
+          		<div class="form-group">
+		            <label for="from">From</label>
+		            <select id="from" class="form-control" [ngModel]="from" name="from">
+		                <option value="Bangalore">Bangalore</option>
+		                <option value="Mysore">Mysore</option>
+		                <option value="Kolar">Kolar</option>
+		                <option value="Tumukur">Tumukur</option>
+		                <option value="Hassan">Hassan</option>
+		            </select>
+		        </div>
+          	</div>
+          	<div class="col-md-4">
+          		<div class="form-group">
+		            <label for="to">To</label>
+		            <select id="to" class="form-control" [ngModel]="to" name="to">
+		                <option value="Bangalore">Bangalore</option>
+		                <option value="Mysore">Mysore</option>
+		                <option value="Kolar">Kolar</option>
+		                <option value="Tumukur">Tumukur</option>
+		                <option value="Hassan">Hassan</option>
+		            </select>
+		        </div>
+          	</div>
+          	<div class="col-md-4">
+          		<div class="form-group">
+		            <label for="to">Date</label>
+		            <input type="date" class="form-control" id="bustraveldate" name="bustraveldate" ngModel required #bustraveldate="ngModel">
+		        </div>
+          	</div>
+          </div>
+          <button type="submit" class="btn btn-primary mr-sm-2 pull-right" [disabled]="!bookingForm.valid">Search</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-bookings-bus-list 
+  [busbookingsListArr]='busListArr' 
+  [source]='source' 
+  [destination]='destination'
+  [travelDate]='travelDate'
+  *ngIf="!isLoading && showList">
+    
+</app-bookings-bus-list>
+
+<h2 *ngIf="isLoading && !showList" class="mt-4">Loading...</h2>
+
+

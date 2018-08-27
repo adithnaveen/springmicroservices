@@ -1,0 +1,30 @@
+<h3 class="mt-4">List of Buses</h3>
+
+<div class="row">
+	<div class="col-md-12">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class=" active mr-5" aria-current="page">From: {{source}}</li>
+				<li class=" active mr-5" aria-current="page">To: {{destination}}</li>
+				<li class=" active mr-5" aria-current="page">Date: {{travelDate}}</li>
+			</ol>
+		</nav>
+	</div>
+</div>
+<div>
+	<div class="card" *ngFor="let bus of busbookingsListArr">
+	  <div class="card-body">
+	    <div class="row">
+	    	<div class="col-md-6">
+	    		<h5 class="card-title">{{bus.busTitle}}</h5>
+			    <p class="card-text">Timings: {{bus.busTravelTime}}</p>
+	    	</div>
+	    	<div class="col-md-6">
+			    <p class="card-text">No of seats: {{bus.noOfSeatsAvailable}} of {{bus.totalNoOfSeats}}</p>
+			    <p class="card-text">Per Seat Cost: {{bus.costPerSeat}}</p>
+	    	</div>
+	    </div>
+	    <a href="javascript:void(0);" routerLink="/{{bus.busTitle}}/seat-selection" class="btn btn-primary pull-right">Book Now</a>
+	  </div>
+	</div>
+</div>
