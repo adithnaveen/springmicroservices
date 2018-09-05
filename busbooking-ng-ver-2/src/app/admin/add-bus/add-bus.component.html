@@ -1,0 +1,111 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        Schedule New Bus
+      </div>
+      <div class="card-body">
+
+        <form (ngSubmit)="onAddBus(f)" #f="ngForm">
+
+          <div class="form-row">
+
+            <div class="form-group col-md-6">
+              <label for="busname">Enter Bus Name</label>
+              <input type="text" class="form-control" id="busname" name="busname" ngModel required #busname="ngModel">
+
+              <span class="help-block" *ngIf="!busname.valid && (busname.dirty || busname.touched)">Please enter Bus Name
+                !
+              </span>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="totalseats">Total No of Seats</label>
+              <input type="number" class="form-control" id="totalseats" name="totalseats" ngModel required #totalseats="ngModel">
+
+              <span class="help-block" *ngIf="!totalseats.valid && (totalseats.dirty || totalseats.touched)">Please enter
+                No of seats!</span>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label class="mr-sm-2">Bus Type : </label>
+
+            <div class="form-check form-check-inline" *ngFor="let bustype of busTypes">
+
+              <input class="form-check-input" type="radio" name="bustype" ngModel [value]="bustype" required><label class="form-check-label">{{
+                bustype }}
+              </label>
+
+            </div>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group col-md-6">
+              <label for="bustraveldate">Date</label>
+              <input type="date" class="form-control" id="bustraveldate" name="bustraveldate" ngModel required #bustraveldate="ngModel">
+
+              <span class="help-block" *ngIf="!bustraveldate.valid && (bustraveldate.dirty || bustraveldate.touched)">Please
+                enter Bus Travel Date!
+              </span>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="costperseat">Cost Per Seat</label>
+              <input type="number" class="form-control" id="costperseat" name="costperseat" ngModel required #costperseat="ngModel">
+
+              <span class="help-block" *ngIf="!costperseat.valid && (costperseat.dirty || costperseat.touched)">Please enter
+                Cost Per Seat!
+              </span>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="bustraveltime">Timings</label>
+            <input type="time" class="form-control" id="bustraveltime" name="bustraveltime" ngModel required #bustraveltime="ngModel">
+
+            <span class="help-block" *ngIf="!bustraveltime.valid && (bustraveltime.dirty || bustraveltime.touched)">Please
+              enter Bus Travel Timings!
+            </span>
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group col-md-6">
+              <label for="bussource">Bus Source</label>
+              <select id="bussource" class="form-control" [ngModel]="defaultsrc" name="bussource">
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mysore">Mysore</option>
+                <option value="Kolar">Kolar</option>
+                <option value="Tumukur">Tumukur</option>
+                <option value="Hassan">Hassan</option>
+              </select>
+            </div>
+
+
+            <div class="form-group col-md-6">
+              <label for="busdestination">Bus Destination</label>
+              <select id="busdestination" class="form-control" [ngModel]="defaultdest" name="busdestination">
+                <option value="Bangalore">Bangalore</option>
+                <option value="Mysore">Mysore</option>
+                <option value="Kolar">Kolar</option>
+                <option value="Tumukur">Tumukur</option>
+                <option value="Hassan">Hassan</option>
+              </select>
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn btn-primary mr-sm-2" [disabled]="!f.valid">Save Bus Details</button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
